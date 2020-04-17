@@ -15,11 +15,6 @@ RUN adduser user
 USER user
 WORKDIR /home/user
 
-COPY --from=jre /jre jre
+COPY --from=jre /jre /jre
 
-COPY ./server.properties server.properties
-RUN echo "eula=true" | cat > eula.txt
-
-COPY server.jar server.jar
-
-CMD [ "./jre/bin/java", "-jar", "./server.jar", "nogui" ]
+CMD [ "/jre/bin/java", "-jar", "./server.jar", "nogui" ]
