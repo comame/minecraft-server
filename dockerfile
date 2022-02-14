@@ -17,4 +17,4 @@ WORKDIR /home/user
 COPY --from=jre /jdk-17.0.2 /jre
 COPY ./server.jar /server.jar
 
-CMD [ "/jre/bin/java", "-jar", "/server.jar", "nogui" ]
+CMD [ "/jre/bin/java", "-jar", "-Dlog4j2.formatMsgNoLookups=true", "/server.jar", "nogui" ]
