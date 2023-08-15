@@ -14,7 +14,7 @@ RUN adduser user
 USER user
 WORKDIR /home/user
 
-COPY --from=jre /jdk-17.0.2 /jre
+COPY --from=jre /jdk-17.0.8 /jre
 COPY ./server.jar /server.jar
 
-CMD [ "/jre/bin/java", "-jar", "-Dlog4j2.formatMsgNoLookups=true", "/server.jar", "nogui" ]
+CMD [ "/jre/bin/java", "-jar", "-Xmx6G", "-Dlog4j2.formatMsgNoLookups=true", "/server.jar", "nogui" ]
